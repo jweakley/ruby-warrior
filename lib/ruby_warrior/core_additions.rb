@@ -18,18 +18,15 @@ class String
   COLORS.each do |color, value|
     define_method(color.to_s) do
       color_it(color)
-      self
     end
     define_method("bg_#{color.to_s}") do
       color_it(color, true)
-      self
     end
   end
 
   OTHERS.each do |other, value|
     define_method(other.to_s) do
       "\e[#{OTHERS[other]}m#{self}\e[0m"
-      self
     end
   end
 
